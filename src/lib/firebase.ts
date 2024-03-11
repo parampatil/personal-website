@@ -29,6 +29,7 @@ let storage: ReturnType<typeof getStorage>;
 export const useAuth = () => {
   auth = getAuth(firebaseApp);
   if (useEmulator()) {
+    console.log("Using Auth Emulator")
     connectAuthEmulator(auth, 'http://localhost:9099');
   }
   return auth;
