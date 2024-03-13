@@ -7,8 +7,10 @@ import { Head } from '~/components/shared/Head';
 
 function Index() {
   const { state } = useAuthState();
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const completeButtonRef = useRef(null);
+
+  const useEmulator = () => import.meta.env.VITE_USE_FIREBASE_EMULATOR;
 
   return (
     <>
@@ -16,6 +18,7 @@ function Index() {
       <div className="hero min-h-screen">
         <div className="text-center hero-content">
           <div>
+            <h1>Use Emulator: {useEmulator() ? "Yes" : "NO"}</h1>
             <h1 className="text-3xl font-bold">
               <a className="link link-primary" target="_blank" href="https://vitejs.dev/" rel="noreferrer">
                 Vite
